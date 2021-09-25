@@ -1,0 +1,52 @@
+<%- include("../partials/header"); %>
+
+    <section class="container">
+        <div class="row">
+            <div class="col">
+                <a href="/cadastrarAluno"><button class="btn-danger">Voltar para o cadastro</button></a>
+                <div class=" row mt-5">
+                    <div class="col-6 mg-5">
+                        <h1>Alunos</h1>
+                    </div>
+                    <div class="col-6">
+                        <a href="aluno/cadastrarAluno"class="btn-danger"></a>
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Matrícula</th>
+                                <th>Turma</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% resultado.forEach(function(aluno){%>
+                                <tr>
+                                    <td>
+                                        <%= aluno.nome %>
+                                    </td>
+                                    <td>
+                                        <%= aluno.email %>
+                                    </td>
+                                    <td>
+                                        <%= aluno.matricula %>
+                                    </td>
+                                    <td>
+                                        <%= aluno.turma %>
+                                    </td>
+                                    <td>
+                                        <a href="/editarAluno/<%=aluno._id%>" class="btn-danger">Editar</a>
+                                        <a href="/deletarAluno/<%=aluno._id %>" class="btn-warning">Apagar</a>
+                                    </td>
+                                </tr>
+
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <%- include("../partials/footer"); %>
